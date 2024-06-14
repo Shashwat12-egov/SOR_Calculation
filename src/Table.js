@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import './Table.css';
 
 const Table=()=> {
+    const HeadingCss = {
+        textAlign: 'center',
+        backgroundColor: '#f5f5f5',
+        padding: '20px',
+        borderRadius: '10px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      };
   const initialData = [{ id: 1, description: '', rate: '', quantity: '', amount: 0 }];
 
   const [data, setData] = useState(initialData);
@@ -70,6 +77,7 @@ const Table=()=> {
 
   return (
     <div className="container">
+      <h1 style={HeadingCss}>SOR Calculation</h1>
       <main>
         <div className="filter-container">
           <input
@@ -79,7 +87,6 @@ const Table=()=> {
             onChange={handleFilterChange}
             className="input"
           />
-          <button onClick={handleAddRow} className="button">Add Row</button>
         </div>
         <table className="table">
           <thead>
@@ -139,6 +146,7 @@ const Table=()=> {
           </tbody>
         </table>
       </main>
+      <button onClick={handleAddRow} className="button" style={{marginTop: "3em"}}>Add Row</button>
       <h4>
         Total amount: {total}
       </h4>
